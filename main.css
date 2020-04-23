@@ -1,0 +1,67 @@
+body{
+	background: url("temp/back.jpg");
+}
+
+
+
+
+/*List of answers css*/
+#answersList {
+    margin-bottom: 8px;
+    padding:0;
+	list-style: none;
+	
+	counter-reset: num;
+}    
+#answersList li {
+    position: relative;
+    border: 2px solid #DDDDDD;
+    background: #FAFAFA;
+    padding:16px 20px 16px 28px;
+    margin:12px 0 12px 80px;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+#answersList li:hover {
+    background: #F0F5FB;
+    border: 2px solid #ADCEE9;
+}
+#answersList li:before {
+    line-height: 32px;
+	position: absolute;
+	padding: 0 5px 0 5px;
+    top: 4px;
+    left:-70px;
+    width:60px;
+    text-align:center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFF;
+	background: #77AEDB;	
+	
+	counter-increment: num;
+	content: "Ответ " counter(num);
+	
+	-webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+#answersList li:hover:before {
+    width:66px;
+    background: #337AB7;
+}
+#answersList li:after {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    content: "";
+    height: 0;
+    width: 0;
+    border: 16px solid transparent;
+    border-left-color: #77AEDB;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s
+}
+#answersList li:hover:after {
+    margin-left: 6px;
+    border-left-color: #337AB7;
+}
