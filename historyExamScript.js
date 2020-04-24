@@ -1,4 +1,7 @@
 function ShowAnswers_AJAX(value) {
+    if(value == "" || value.length <= 2){
+        return
+    }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
     let request = new XMLHttpRequest();
     request.open('GET', 'temp/data.json', true);
 
