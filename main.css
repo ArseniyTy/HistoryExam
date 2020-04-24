@@ -40,6 +40,17 @@ input:valid~label {
   top: -40px;
   color: #535353;
 }
+/*Footer*/
+footer{
+    position: fixed;
+    left: 70%;
+    bottom: 0;
+    width: 20%;
+    background-color: red;
+    color: white;
+    text-align: center;
+    border-radius: 3px;
+}
 
 /*List of answers css*/
 #answersList {
