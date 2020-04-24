@@ -1,18 +1,26 @@
 [
     {
+        "Card" : "Билет 1",
         "question" : "q1", 
-        "answer" : "ans1" 
+        "answer" : "ans1",
+        "a_type" : "text" 
     },
     {
+        "Card" : "Билет 1",
         "question" : "q2", 
-        "answer" : "ans2"
+        "answer" : "ans2",
+        "a_type" : "optional"
     },
     {
+        "Card" : "Билет 1",
         "question" : "q3", 
-        "answer" : "ans3"
+        "answer" : "ans3",
+        "a_type" : "optional"
     },
     {
+        "Card" : "Билет 1",
         "question" : "Спадчыннае зямельнае ўладанне вялікага князя, якое было ў поўным яго ўладанні", 
-        "answer" : "дамен"
+        "answer" : "дамен",
+        "a_type" : "text"
     }
 ]
