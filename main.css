@@ -132,4 +132,12 @@ footer{
 #answersList li.successCopy:not(:hover) {
     background: #FAFAFA;
     transition: background 1.5s;
+}
+p.behindElement {
+    position: absolute;
+    z-index: 2;
+    opacity: 0.2;
+    font-size: 50px;
+    margin: -6% 0 0 40%;
+    text-align: right;
 }  

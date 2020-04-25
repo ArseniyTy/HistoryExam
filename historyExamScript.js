@@ -86,9 +86,16 @@ function AddOnClicksToLiElems() {
                 document.execCommand('copy');  
                 //даём этому элементу класс
                 li_elems[i].classList.add('successCopy');
+                
+                //создаём параграф (текст позади li элемента) внутрі li
+                var pAlert = document.createElement('p');
+                pAlert.textContent = "Copied";
+                pAlert.classList.add('behindElement');
+                li_elems[i].appendChild(pAlert);
                 //через 1.6 секунд удаляем класс
                 setTimeout(function() {
                     li_elems[i].classList.remove('successCopy');
+                    li_elems[i].removeChild(pAlert);
                   }, 1600);
 
               } catch(err) {  
