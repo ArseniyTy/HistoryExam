@@ -3,7 +3,7 @@ function ShowAnswers_AJAX(value) {
         return
     }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
     let request = new XMLHttpRequest();
-    request.open('GET', 'temp/data.json', true);
+    request.open('GET', 'temp/history.json', true);
 
     //onload выполняется после выполнения запроса
     request.onload = function () {
@@ -33,6 +33,8 @@ function show_answers(questions) {
     for(let i=0; i<questions.length; i++) {
         show_single_answer(questions[i]);
     }
+
+    AddOnClicksToLiElems();
 }
 function show_single_answer(question) {
     var list = document.getElementById('answersList');
@@ -48,3 +50,34 @@ function show_single_answer(question) {
     li.appendChild(pAnswer);
     list.appendChild(li);
 }
+
+
+
+function AddOnClicksToLiElems() {
+    var li_elems = document.getElementById("answersList").getElementsByTagName('li');
+    for(let i=0; i<li_elems.length; i++) {
+        li_elems[i].onclick = function() {
+            // Выборка текста параграфа внутри li элемента
+            var answer = li_elems[i].getElementsByTagName('p')[1];  
+
+            var range = document.createRange();  
+            range.selectNode(answer);
+            //очищаем и вставляем в буфер
+            window.getSelection().removeAllRanges(); 
+            window.getSelection().addRange(range);
+
+            try {  
+                // Теперь, когда мы выбрали текст ссылки, выполним команду копирования
+                var successful = document.execCommand('copy');  
+                var msg = successful ? 'successful' : 'unsuccessful';  
+                console.log('Copy command was ' + msg);  
+              } catch(err) {  
+                console.log('Oops, unable to copy');  
+              }  
+                
+              // Снятие выделения
+              window.getSelection().removeRange(range);  
+        }
+    }
+}
+
