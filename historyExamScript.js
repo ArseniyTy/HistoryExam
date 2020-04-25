@@ -82,12 +82,17 @@ function AddOnClicksToLiElems() {
             window.getSelection().addRange(range);
 
             try {  
-                // Теперь, когда мы выбрали текст ссылки, выполним команду копирования
-                var successful = document.execCommand('copy');  
-                var msg = successful ? 'successful' : 'unsuccessful';  
-                console.log('Copy command was ' + msg);  
+                // выполним команду копирования
+                document.execCommand('copy');  
+                //даём этому элементу класс
+                li_elems[i].classList.add('successCopy');
+                //через 1.6 секунд удаляем класс
+                setTimeout(function() {
+                    li_elems[i].classList.remove('successCopy');
+                  }, 1600);
+
               } catch(err) {  
-                console.log('Oops, unable to copy');  
+                console.log('Unable to copy');  
               }  
                 
               // Снятие выделения
