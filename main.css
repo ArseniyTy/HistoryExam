@@ -1,6 +1,9 @@
 body{
 	background: url("temp/back.jpg");
 }
+
+
+
 /*Input*/
 label {
     position: relative;
@@ -40,6 +43,9 @@ input:valid~label {
   top: -40px;
   color: #535353;
 }
+
+
+
 /*Footer*/
 footer{
     position: fixed;
@@ -51,6 +57,9 @@ footer{
     text-align: center;
     border-radius: 3px;
 }
+
+
+
 
 /*List of answers css*/
 #answersList {
@@ -112,3 +121,23 @@ footer{
     margin-left: 6px;
     border-left-color: #337AB7;
 }
+
+
+
+
+/*Coping effect*/
+#answersList li.successCopy {
+    background: rgb(141, 255, 137);
+}
+#answersList li.successCopy:not(:hover) {
+    background: #FAFAFA;
+    transition: background 1.5s;
+}
+p.behindElement {
+    position: absolute;
+    z-index: 2;
+    opacity: 0.2;
+    font-size: 50px;
+    margin: -6% 0 0 40%;
+    text-align: right;
+}  
