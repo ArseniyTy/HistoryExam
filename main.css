@@ -30,7 +30,7 @@ input{
 
 input:focus {
     outline: red 2px;
-    background: gainsboro;
+    background: rgb(202, 224, 233);
     transition: padding-top 0.2s ease, margin-top 0.2s ease;
 }
 
