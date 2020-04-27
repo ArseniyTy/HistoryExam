@@ -47,9 +47,9 @@ function show_single_answer(question) {
     var pAnswer = document.createElement('p');
     var pAnswer_span = document.createElement('span');
 
-    pQuestion.innerHTML = "Вопрос: " + question.question;
+    pQuestion.innerHTML = "Пытанне: " + question.question;
     pAnswer_span.innerHTML = question.answer;
-    pAnswer.innerHTML = "Ответ : ";
+    pAnswer.innerHTML = "Адказ: ";
 
     li.appendChild(pQuestion);
     pAnswer.appendChild(pAnswer_span);

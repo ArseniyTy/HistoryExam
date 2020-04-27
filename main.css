@@ -88,7 +88,7 @@ footer{
 	padding: 0 5px 0 5px;
     top: 4px;
     left:-70px;
-    width:60px;
+    width:64px;
     text-align:center;
     font-size: 16px;
     font-weight: bold;
@@ -96,13 +96,13 @@ footer{
 	background: #77AEDB;	
 	
 	counter-increment: num;
-	content: "Ответ " counter(num);
+	content: "Адказ " counter(num);
 	
 	-webkit-transition-duration: 0.2s;
     transition-duration: 0.2s;
 }
 #answersList li:hover:before {
-    width:66px;
+    width:70px;
     background: #337AB7;
 }
 #answersList li:after {
@@ -112,13 +112,14 @@ footer{
     content: "";
     height: 0;
     width: 0;
+    margin-left: 3px;
     border: 16px solid transparent;
     border-left-color: #77AEDB;
     -webkit-transition-duration: 0.2s;
     transition-duration: 0.2s
 }
 #answersList li:hover:after {
-    margin-left: 6px;
+    margin-left: 10px;
     border-left-color: #337AB7;
 }
 
