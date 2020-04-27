@@ -77,25 +77,6 @@ function AddOnClicksToLiElems(questions) {
                 // Выборка текста span,     внутри параграфа ответа p,     внутри li элемента
                 var answer = li_elems[i].getElementsByTagName('p')[1].getElementsByTagName('span')[0];  
                 
-<<<<<<< HEAD
-                //создаём параграф (текст позади li элемента) внутрі li
-                var pAlert = document.createElement('p');
-                pAlert.textContent = "COPIED";
-                pAlert.classList.add('behindElement');
-                li_elems[i].appendChild(pAlert);
-                //через 1.6 секунд удаляем класс
-                setTimeout(function() {
-                    li_elems[i].classList.remove('successCopy');
-                    li_elems[i].removeChild(pAlert);
-                  }, 1600);
-
-              } catch(err) {  
-                console.log('Unable to copy');  
-              }  
-                
-              // Снятие выделения
-              window.getSelection().removeRange(range);  
-=======
                 var range = document.createRange();  
                 range.selectNode(answer);
                 //очищаем и вставляем в буфер
@@ -126,7 +107,6 @@ function AddOnClicksToLiElems(questions) {
                   // Снятие выделения
                   window.getSelection().removeRange(range);  
             }
->>>>>>> ContentChangeBranch
         }
     }
 }
