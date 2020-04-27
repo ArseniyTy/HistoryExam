@@ -127,7 +127,8 @@ footer{
 
 /*Coping effect*/
 #answersList li.successCopy {
-    background: rgb(141, 255, 137);
+    /* background: rgb(141, 255, 137); */
+    background: rgb(179, 237, 255);
 }
 #answersList li.successCopy:not(:hover) {
     background: #FAFAFA;
@@ -137,7 +138,9 @@ p.behindElement {
     position: absolute;
     z-index: 2;
     opacity: 0.2;
-    font-size: 50px;
-    margin: -6% 0 0 40%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 42px;
+    font-style: italic;
+    margin: -6% 0 0 80%;
     text-align: right;
 }  
