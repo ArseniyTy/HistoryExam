@@ -3,7 +3,7 @@ function ShowAnswers_AJAX(value) {
         return
     }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
     let request = new XMLHttpRequest();
-    request.open('GET', 'temp/history.json', true);
+    request.open('GET', 'temp/data.json', true);
 
     //onload выполняется после выполнения запроса
     request.onload = function () {
