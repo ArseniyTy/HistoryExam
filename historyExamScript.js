@@ -3,7 +3,7 @@ function ShowAnswers_AJAX(value) {
         return
     }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
     let request = new XMLHttpRequest();
-    request.open('GET', 'temp/history.json', true);
+    request.open('GET', 'temp/data.json', true);
 
     //onload выполняется после выполнения запроса
     request.onload = function () {
@@ -37,7 +37,7 @@ function show_answers(questions) {
         show_single_answer(questions[i]);
     }
 
-    AddOnClicksToLiElems();
+    AddOnClicksToLiElems(questions);
 }
 function show_single_answer(question) {
     var list = document.getElementById('answersList');
@@ -68,42 +68,45 @@ function show_single_answer(question) {
 
 
 
-function AddOnClicksToLiElems() {
+function AddOnClicksToLiElems(questions) {
     var li_elems = document.getElementById("answersList").getElementsByTagName('li');
     for(let i=0; i<li_elems.length; i++) {
-        li_elems[i].onclick = function() {
-            // Выборка текста span,     внутри параграфа ответа p,     внутри li элемента
-            var answer = li_elems[i].getElementsByTagName('p')[1].getElementsByTagName('span')[0];  
-            
-            var range = document.createRange();  
-            range.selectNode(answer);
-            //очищаем и вставляем в буфер
-            window.getSelection().removeAllRanges(); 
-            window.getSelection().addRange(range);
-
-            try {  
-                // выполним команду копирования
-                document.execCommand('copy');  
-                //даём этому элементу класс
-                li_elems[i].classList.add('successCopy');
+        //функція копірованія возможно только для білетов с a_type = 1        
+        if(questions[i].a_type == '1') {
+            li_elems[i].onclick = function() {
+                // Выборка текста span,     внутри параграфа ответа p,     внутри li элемента
+                var answer = li_elems[i].getElementsByTagName('p')[1].getElementsByTagName('span')[0];  
                 
-                //создаём параграф (текст позади li элемента) внутрі li
-                var pAlert = document.createElement('p');
-                pAlert.textContent = "Copied";
-                pAlert.classList.add('behindElement');
-                li_elems[i].appendChild(pAlert);
-                //через 1.6 секунд удаляем класс
-                setTimeout(function() {
-                    li_elems[i].classList.remove('successCopy');
-                    li_elems[i].removeChild(pAlert);
-                  }, 1600);
-
-              } catch(err) {  
-                console.log('Unable to copy');  
-              }  
-                
-              // Снятие выделения
-              window.getSelection().removeRange(range);  
+                var range = document.createRange();  
+                range.selectNode(answer);
+                //очищаем и вставляем в буфер
+                window.getSelection().removeAllRanges(); 
+                window.getSelection().addRange(range);
+    
+                try {  
+                    // выполним команду копирования
+                    document.execCommand('copy');  
+                    //даём этому элементу класс
+                    li_elems[i].classList.add('successCopy');
+                    
+                    //создаём параграф (текст позади li элемента) внутрі li
+                    var pAlert = document.createElement('p');
+                    pAlert.textContent = "Copied";
+                    pAlert.classList.add('behindElement');
+                    li_elems[i].appendChild(pAlert);
+                    //через 1.6 секунд удаляем класс
+                    setTimeout(function() {
+                        li_elems[i].classList.remove('successCopy');
+                        li_elems[i].removeChild(pAlert);
+                      }, 1600);
+    
+                  } catch(err) {  
+                    console.log('Unable to copy');  
+                  }  
+                    
+                  // Снятие выделения
+                  window.getSelection().removeRange(range);  
+            }
         }
     }
 }
