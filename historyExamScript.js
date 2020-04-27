@@ -91,7 +91,7 @@ function AddOnClicksToLiElems(questions) {
                     
                     //создаём параграф (текст позади li элемента) внутрі li
                     var pAlert = document.createElement('p');
-                    pAlert.textContent = "Copied";
+                    pAlert.textContent = "COPIED";
                     pAlert.classList.add('behindElement');
                     li_elems[i].appendChild(pAlert);
                     //через 1.6 секунд удаляем класс
