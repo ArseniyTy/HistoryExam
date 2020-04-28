@@ -12,9 +12,10 @@ function ShowAnswers_AJAX(value) {
         //находим переданную строку value (переводим 2 строкі в нижний регистр на всякий)
         let questionsToShow = new Array();
         
-        if(value == "ShowAll") {
+        if(value == "_Усе_") {
             questionsToShow = questions;
-        } else { 
+        }
+        else { 
             for(let i=0; i<questions.length; i++) {
                 if(questions[i].question.toLowerCase().includes(value.toLowerCase())) {
                     questionsToShow.push(questions[i]);
@@ -47,15 +48,19 @@ function show_answers(questions) {
 function show_single_answer(question) {
     var list = document.getElementById('answersList');
     var li = document.createElement('li');
-    //создаём элементы, которые потом помещаем в элемент списка 
+    //создаём элементы, которые потом помещаем в элемент списка
+    var pCard= document.createElement('p'); 
     var pQuestion = document.createElement('p');
     var pAnswer = document.createElement('p');
     var pAnswer_span = document.createElement('span');
 
+    pCard.innerHTML = "Білет №" + question.Card;
     pQuestion.innerHTML = "Пытанне: " + question.question;
     pAnswer_span.innerHTML = question.answer;
     pAnswer.innerHTML = "Адказ: ";
 
+
+    li.appendChild(pCard);
     li.appendChild(pQuestion);
     pAnswer.appendChild(pAnswer_span);
     li.appendChild(pAnswer);
@@ -63,6 +68,7 @@ function show_single_answer(question) {
 
     //в итоге такая структура
     /*<li>
+        <p>Білет №7-1</p>
         <p>Вопрос: За часы кіравання Гедыміна тэрыторыя ВКЛ павялічылася ў два разы.</p>
         <p>Ответ : <span>Неверно</span></p>
     </li>
@@ -80,7 +86,7 @@ function AddOnClicksToLiElems(questions) {
         if(questions[i].a_type == '1') {
             li_elems[i].onclick = function() {
                 // Выборка текста span,     внутри параграфа ответа p,     внутри li элемента
-                var answer = li_elems[i].getElementsByTagName('p')[1].getElementsByTagName('span')[0];  
+                var answer = li_elems[i].getElementsByTagName('p')[2].getElementsByTagName('span')[0];  
                 
                 var range = document.createRange();  
                 range.selectNode(answer);
