@@ -47,7 +47,7 @@ input:valid~label {
 
 
 /*Footer*/
-footer{
+.foot{
     position: fixed;
     left: 70%;
     bottom: 0;
@@ -57,14 +57,28 @@ footer{
     text-align: center;
     border-radius: 3px;
 }
-footer p{ 
+.top{
+    position: fixed;
+    left: 80%;
+    top: 0%;
+    width: 10%;
+    height: 22px;
+    background-color: rgb(43, 160, 255);
+    color: white;
+    text-align: center;
+    border-radius: 3px;
+}
+.top p{ 
     margin: 1px;
 }
-/*PopUp window*/
-[data-tooltip] {
+.foot p{ 
+    margin: 1px;
+}
+/*PopUp window FOOT*/
+footer.foot [data-tooltip] {
     position: relative; /* Относительное позиционирование */ 
 }
-[data-tooltip]::after {
+footer.foot [data-tooltip]::after {
 content: attr(data-tooltip); /* Выводим текст */
 position: absolute; /* Абсолютное позиционирование */
 left: 0; top: 0; /* Положение подсказки */
@@ -76,14 +90,30 @@ pointer-events: none; /* Подсказка */
 opacity: 0; /* Подсказка невидима */
 transition: 0.5s; /* Время появления подсказки */
 } 
-[data-tooltip]:hover::after {
+footer.foot [data-tooltip]:hover::after {
 opacity: 1; /* Показываем подсказку */
 top: -1210%; /* Положение подсказки */
 }
-
-
-
-
+/*PopUp window TOP*/
+footer.top [data-tooltip] {
+    position: relative; /* Относительное позиционирование */ 
+}
+footer.top [data-tooltip]::after {
+content: attr(data-tooltip); /* Выводим текст */
+position: absolute; /* Абсолютное позиционирование */
+left: 0; top: 0; /* Положение подсказки */
+background: rgb(43, 160, 255); /* цвет фона */
+color: #fff; /* Цвет текста */
+padding: 0.5em; /* Поля вокруг текста */
+box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Параметры тени */
+pointer-events: none; /* Подсказка */
+opacity: 0; /* Подсказка невидима */
+transition: 0.5s; /* Время появления подсказки */
+} 
+footer.top [data-tooltip]:hover::after {
+opacity: 1; /* Показываем подсказку */
+top: 150%; /* Положение подсказки */
+}
 
 
 /*List of answers css*/
