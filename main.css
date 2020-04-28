@@ -57,6 +57,31 @@ footer{
     text-align: center;
     border-radius: 3px;
 }
+footer p{ 
+    margin: 1px;
+}
+/*PopUp window*/
+[data-tooltip] {
+    position: relative; /* Относительное позиционирование */ 
+}
+[data-tooltip]::after {
+content: attr(data-tooltip); /* Выводим текст */
+position: absolute; /* Абсолютное позиционирование */
+left: 0; top: 0; /* Положение подсказки */
+background: red; /* цвет фона */
+color: #fff; /* Цвет текста */
+padding: 0.5em; /* Поля вокруг текста */
+box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Параметры тени */
+pointer-events: none; /* Подсказка */
+opacity: 0; /* Подсказка невидима */
+transition: 0.5s; /* Время появления подсказки */
+} 
+[data-tooltip]:hover::after {
+opacity: 1; /* Показываем подсказку */
+top: -1210%; /* Положение подсказки */
+}
+
+
 
 
 
@@ -88,7 +113,7 @@ footer{
 	padding: 0 5px 0 5px;
     top: 4px;
     left:-70px;
-    width:60px;
+    width:64px;
     text-align:center;
     font-size: 16px;
     font-weight: bold;
@@ -96,13 +121,13 @@ footer{
 	background: #77AEDB;	
 	
 	counter-increment: num;
-	content: "Ответ " counter(num);
+	content: "Адказ " counter(num);
 	
 	-webkit-transition-duration: 0.2s;
     transition-duration: 0.2s;
 }
 #answersList li:hover:before {
-    width:66px;
+    width:70px;
     background: #337AB7;
 }
 #answersList li:after {
@@ -112,13 +137,14 @@ footer{
     content: "";
     height: 0;
     width: 0;
+    margin-left: 3px;
     border: 16px solid transparent;
     border-left-color: #77AEDB;
     -webkit-transition-duration: 0.2s;
     transition-duration: 0.2s
 }
 #answersList li:hover:after {
-    margin-left: 6px;
+    margin-left: 10px;
     border-left-color: #337AB7;
 }
 
@@ -143,4 +169,4 @@ p.behindElement {
     font-style: italic;
     margin: -6% 0 0 80%;
     text-align: right;
-}  
+}
