@@ -11,11 +11,10 @@ function ShowAnswers_AJAX(value) {
         let questions = JSON.parse(this.response);
         //находим переданную строку value (переводим 2 строкі в нижний регистр на всякий)
         let questionsToShow = new Array();
-        if(value == "   "){
-            questions.forEach(element => {
-                questionsToShow.push(element);
-            });
-        }else{
+        
+        if(value == "ShowAll") {
+            questionsToShow = questions;
+        } else { 
             for(let i=0; i<questions.length; i++) {
                 if(questions[i].question.toLowerCase().includes(value.toLowerCase())) {
                     questionsToShow.push(questions[i]);
